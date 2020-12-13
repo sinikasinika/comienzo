@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+
+  color: $color-gray;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  letter-spacing: 0.08em;
+
+  color: $color-light;
+
+  font-family: "Roboto Slab", serif;
+  font-weight: 300;
+  line-height: 1.2;
+
+  @include lg-min {
+    font-size: 3.75rem;
+  }
+  @include lg-md {
+    font-size: 2.5rem;
+  }
+  @include md {
+    font-size: 1.875rem;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  color: $color-light;
+}
+
+.btn,
+.btn-accent {
+  display: block;
+
+  transition: background-color 0.5s;
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  font-size: 1.125rem;
+}
+
+.btn {
+  padding-right: $gap;
+  padding-left: $gap;
+
+  border: 2px solid $color-light;
+  background-color: rgba($color-light, 0.1);
+
+  @include lg-min {
+    min-width: 250px;
+    height: 60px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  @include lg {
+    min-width: 200px;
+    height: 50px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    font-size: 1rem;
+  }
+  @include md {
+    min-width: 170px;
+    height: 40px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+}
+
+.btn-accent {
+  height: 60px;
+  padding: 18px $gap;
+
+  border: 2px solid $color-primary;
+  background-color: rgba($color-primary, 0.8);
+  width: 350px;
+
+  @include sm {
+    width: 100%;
+  }
+}
+
+.btn:hover,
+.btn-accent:hover {
+  background-color: $color-accent;
+}

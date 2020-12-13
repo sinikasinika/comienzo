@@ -1,0 +1,165 @@
+.posts {
+  @include lg-min {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @include lg-md {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @include md {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &__container {
+    @extend %container;
+  }
+
+  &__grid {
+    display: grid;
+    padding-bottom: 20px;
+    grid-gap: 20px;
+
+    @include lg-min {
+      grid-template-areas: "p1 p1 p2 p3" "p4 p5 p6 p6";
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include lg-md {
+      grid-template-areas: "p1 p1 p2" "p3 p4 p4" "p5 p5 p6";
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include md-sm {
+      grid-template-areas: "p1 p2" "p3 p4" "p5 p6";
+      grid-template-columns: 1fr 1fr;
+    }
+    @include sm {
+      grid-template-areas: "p1" "p2" "p3" "p4" "p5" "p6";
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__button {
+    @include sm-min {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__button .btn-accent {
+    @include sm-min {
+      min-width: 350px;
+    }
+  }
+}
+
+.post-item {
+  transition: background-color 0.5s;
+  background-color: #f2f2f2;
+
+  &:hover {
+    background-color: #d8d8d8;
+  }
+
+  &__image img {
+    width: 100%;
+    transition: transform 0.5s;
+    object-fit: cover;
+  }
+
+  &__link {
+    display: grid;
+    overflow: hidden;
+    height: 100%;
+    grid-template-rows: 300px 1fr;
+  }
+
+  &__image {
+    display: flex;
+    overflow: hidden;
+    align-content: center;
+    justify-content: center;
+    background-color: $color-primary;
+  }
+
+  &__caption {
+    display: grid;
+    align-content: center;
+    padding: 20px;
+  }
+
+  &__caption h3 {
+    transition: color 0.5s;
+    font-family: "Roboto Slab", serif;
+    text-align: center;
+  }
+  &:hover h3 {
+    color: $color-primary;
+  }
+
+  &__caption p {
+    transition: color 0.5s;
+    text-align: center;
+  }
+
+  &:hover p {
+    color: $color-primary;
+  }
+
+  &:hover .post-item__image img {
+    transform: scale(1.1);
+  }
+}
+
+.posts h2 {
+  margin-top: 0;
+  @extend %h2;
+}
+
+h3 {
+  font-size: 1.125rem;
+  letter-spacing: 0.05em;
+  color: $color-gray;
+}
+
+@for $i from 1 through 6 {
+  .post-item:nth-of-type(#{$i}) {
+    grid-area: p#{$i};
+  }
+}
+
+// .post-item:hover .post-item__image img {
+//   transform: scale(1.1);
+// }
+
+// .post-item:hover h3 {
+//   color: $color-primary;
+// }
+// .post-item:hover p {
+//   color: $color-primary;
+// }
+
+// .post-item__caption h3 {
+//   transition: color 0.5s;
+//   font-family: "Roboto Slab", serif;
+//   text-align: center;
+// }
+// .post-item__caption p {
+//   transition: color 0.5s;
+//   text-align: center;
+// }
+
+// .posts__button {
+//   @include sm-min {
+//     display: flex;
+//     justify-content: center;
+//   }
+// }
+// .posts__button .btn-accent {
+//   @include sm-min {
+//     min-width: 350px;
+//   }
+// }
